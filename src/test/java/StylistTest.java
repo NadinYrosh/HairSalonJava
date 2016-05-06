@@ -41,13 +41,13 @@ public class StylistTest {
   }
 
   // @Test
-  // public void getRestaurants_retrieveAllRestaurantsInCuisineFromDatabase_true(){
-  //   Cuisine myCuisine = new Cuisine("Indian");
-  //   Restaurant firstRestaurant = new Restaurant ("Luca's", "11-7", myCuisine.getId());
-  //   firstRestaurant.save();
-  //   Restaurant secondRestaurant = new Restaurant ("Mark's", "11-7", myCuisine.getId());
-  //   secondRestaurant.save();
-  //   Restaurant[] restaurants = new Restaurant[] {firstRestaurant,secondRestaurant};
-  //   assertTrue(myCuisine.getRestaurants().containsAll(Arrays.asList(restaurants)));
+  // public void getClients_retrieveAllClientsInStylistFromDatabase_true(){
+  //   Stylist newStylist = new Stylist("Brian Broom");
+  //   Client firstClient = new Client ("Dien Miller", newStylist.getId());
+  //   firstClient.save();
+  //   Client secondClient = new Client ("Lulu Promp", newStylist.getId());
+  //   secondClient.save();
+  //   Client[] clients = new Client[] {firstClient,secondClient};
+  //   assertTrue(newStylist.getClients().containsAll(Arrays.asList(clients)));
   // }
 }
