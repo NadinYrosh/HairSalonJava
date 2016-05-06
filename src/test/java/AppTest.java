@@ -1,43 +1,41 @@
-// import org.fluentlenium.adapter.FluentTest;
-// import org.junit.ClassRule;
-// import org.junit.Test;
-// import org.openqa.selenium.WebDriver;
-// import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-// import static org.assertj.core.api.Assertions.assertThat;
-// import org.sql2o.*;
-// import org.junit.*;
-//
-// import static org.assertj.core.api.Assertions.assertThat;
-// import static org.fluentlenium.core.filter.FilterConstructor.*;
-//
-// public class AppTest extends FluentTest {
-//   public WebDriver webDriver = new HtmlUnitDriver();
-//
-//   @Rule
-//   public DatabaseRule database = new DatabaseRule();
-//
-//   @Override
-//   public WebDriver getDefaultDriver() {
-//     return webDriver;
-//   }
-//
-//   @ClassRule
-//   public static ServerRule server = new ServerRule();
-//
-//   @Test
-//   public void rootTest() {
-//     goTo("http://localhost:4567/");
-//     assertThat(pageSource()).contains("Cuisines");
-//   }
-//
-//   @Test
-//   public void CuisineIsCreatedTest() {
-//     goTo("http://localhost:4567/");
-//     click("a", withText("Add a new cuisine"));
-//     fill("#name").with("Indian");
-//     submit(".btn");
-//     assertThat(pageSource()).contains("Success!");
-//   }
+import org.fluentlenium.adapter.FluentTest;
+import org.junit.ClassRule;
+import org.junit.Test;
+import org.junit.*;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.sql2o.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.fluentlenium.core.filter.FilterConstructor.*;
+
+public class AppTest extends FluentTest {
+  public WebDriver webDriver = new HtmlUnitDriver();
+
+  @Rule
+  public DatabaseRule database = new DatabaseRule();
+
+  @Override
+  public WebDriver getDefaultDriver() {
+    return webDriver;
+  }
+
+  @ClassRule
+  public static ServerRule server = new ServerRule();
+
+  @Test
+  public void rootTest() {
+    goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("Hair Salon");
+  }
+
+  @Test
+  public void StylistIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    click("a", withText("Add stylist"));
+    fill("#name").with("Bobby");
+    submit(".btn");
+    assertThat(pageSource()).contains("You have added a new stylist.");
+  }
 //
 //   @Test
 //   public void CuisineIsDisplayed() {
@@ -76,4 +74,4 @@
 //       assertThat(pageSource()).contains("Lucka's");
 //     }
 //
-// }
+}
