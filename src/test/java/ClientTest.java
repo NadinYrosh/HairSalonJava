@@ -25,7 +25,7 @@ public class ClientTest {
   @Test
   public void getClientId_gettingTheId_Int(){
     Client newClient = new Client("Brian", 1);
-    assertEquals(1, newClient.getClientId());
+    assertEquals(0, newClient.getClientId());
   }
 
   @Test
@@ -37,24 +37,24 @@ public class ClientTest {
   public void save_clientIsSavedClient(){
     Client newClient = new Client("Brian", 1);
     newClient.save();
-    assertTrue(newClient.getId() == Client.all().get(0).getId());
+    assertTrue(newClient.getClientId() == Client.all().get(0).getClientId());
   }
 
   @Test
   public void find_findsClientInDatabase_True() {
     Client newClient = new Client("Brian", 1);
     newClient.save();
-    Client savedClient = Client.find(newClient.getId());
+    Client savedClient = Client.find(newClient.getClientId());
     assertTrue(newClient.equals(savedClient));
   }
-  //
+
   // @Test
-  // public void save_savesCuisineIdIntoDB_true() {
-  //   Cuisine myCuisine = new Cuisine("Indian");
-  //   myCuisine.save();
-  //   Restaurant myRestaurant = new Restaurant("Luca's", "11-7", myCuisine.getId());
-  //   myRestaurant.save();
-  //   Restaurant savedRestaurant = Restaurant.find(myRestaurant.getId());
-  //   assertEquals(savedRestaurant.getCuisineId(), myCuisine.getId());
+  // public void save_savesStylistIdIntoDB_true() {
+  //   Stylist  newStylist = new Stylist("Brian");
+  //   newStylist.save();
+  //   Client myClient = new Client("Nickol", newStylist.getStylistId());
+  //   myClient.save();
+  //   Client savedClient = Client.find(myClient.getClientId());
+  //   assertEquals(savedClient.getStylistId(), newStylist.getClientId());
   // }
 }

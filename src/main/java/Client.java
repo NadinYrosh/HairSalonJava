@@ -10,23 +10,37 @@ public class Client {
   private String name;
 
   public Client(String name, int stylist_id){
-    this.stylist_id = stylist_id;
     this.name = name;
+    this.stylist_id = stylist_id;
+
   }
 
   public String getName(){
     return name;
   }
 
-  public int getClientId(){
+  public int getStylistId(){
     return stylist_id;
   }
 
 
-  public int getId(){
+  public int getClientId(){
     return id;
   }
 
+
+
+  @Override
+  public boolean equals(Object otherClient){
+    if (!(otherClient instanceof Client)){
+      return false;
+    } else {
+      Client newClient = (Client) otherClient;
+      return newClient.getName().equals(this.getName()) &&
+             newClient.getClientId() == (this.getClientId())&&
+             newClient.getStylistId() == (this.getStylistId());
+    }
+  }
 
   public static List<Client> all(){
     String sql = "SELECT * FROM clients";
@@ -35,17 +49,6 @@ public class Client {
     }
   }
 
-  @Override
-  public boolean equals(Object otherClient){
-    if (!(otherClient instanceof Client)){
-      return false;
-    } else {
-      Client newClient = (Client) otherClient;
-      return newClient.getName()
-             .equals(this.getName()) &&
-             newClient.getClientId() == (this.getClientId());
-    }
-  }
 
   public void save(){
     String sql = "INSERT INTO clients (name, stylist_id) VALUES (:name, :stylist_id)";
