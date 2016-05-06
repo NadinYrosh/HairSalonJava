@@ -25,21 +25,21 @@ public class StylistTest {
     assertEquals(Stylist.all().size(), 0);
   }
 
+  @Test
+  public void save_stylistIsSavedCorrectly(){
+    Stylist newStylist = new Stylist("Brian");
+    newStylist.save();
+    assertTrue(newStylist.equals(Stylist.all().get(0)));
+  }
+
   // @Test
-  // public void save_cuisineIsSavedCorrectly(){
-  //   Cuisine newCuisine = new Cuisine("Indian");
-  //   newCuisine.save();
-  //   assertTrue(newCuisine.equals(Cuisine.all().get(0)));
+  // public void find_StylistInDataBase_true(){
+  //   Stylist newStylist = new Stylist("Brian");
+  //   newStylist.save();
+  //   Stylist savedStylist = Stylist.find(newStylist.getId());
+  //   assertTrue(newStylist.equals(savedStylist));
   // }
-  //
-  // @Test
-  // public void find_CusuineInDataBase_true(){
-  //   Cuisine newCuisine = new Cuisine("Indian");
-  //   newCuisine.save();
-  //   Cuisine savedCuisine = Cuisine.find(newCuisine.getId());
-  //   assertTrue(newCuisine.equals(savedCuisine));
-  // }
-  //
+
   // @Test
   // public void getRestaurants_retrieveAllRestaurantsInCuisineFromDatabase_true(){
   //   Cuisine myCuisine = new Cuisine("Indian");

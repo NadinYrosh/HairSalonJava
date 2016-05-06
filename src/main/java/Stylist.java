@@ -39,16 +39,16 @@ public class Stylist {
     }
   }
 
-  // public void save(){
-  //   String sql = "INSERT INTO cuisine (name) VALUES (:name)";
-  //   try (Connection con = DB.sql2o.open()){
-  //     this.id = (int) con.createQuery(sql, true)
-  //     .addParameter("name", this.name)
-  //     .executeUpdate()
-  //     .getKey();
-  //   }
-  // }
-  //
+  public void save(){
+    String sql = "INSERT INTO stylists (name) VALUES (:name)";
+    try (Connection con = DB.sql2o.open()){
+      this.id = (int) con.createQuery(sql, true)
+      .addParameter("name", this.name)
+      .executeUpdate()
+      .getKey();
+    }
+  }
+
   // public static Cuisine find(int id){
   //   try(Connection con = DB.sql2o.open()){
   //     String sql = "SELECT * FROM cuisine WHERE id=:id";
