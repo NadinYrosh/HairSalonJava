@@ -13,18 +13,18 @@ public class StylistTest {
     Stylist newStylist = new Stylist("Brian");
     assertTrue(newStylist instanceof Stylist);
   }
-  //
-  // @Test
-  // public void Cuisine_returnNameCorrectly_name(){
-  //   Cuisine newCuisine = new Cuisine("Indian");
-  //   assertEquals ("Indian", newCuisine.getName());
-  // }
-  //
-  // @Test
-  // public void all_emptyAtFirst(){
-  //   assertEquals(Cuisine.all().size(), 0);
-  // }
-  //
+
+  @Test
+  public void Stylist_returnNameCorrectly_name(){
+    Stylist newStylist = new Stylist("Brian");
+    assertEquals ("Brian", newStylist.getName());
+  }
+
+  @Test
+  public void all_emptyAtFirst(){
+    assertEquals(Stylist.all().size(), 0);
+  }
+
   // @Test
   // public void save_cuisineIsSavedCorrectly(){
   //   Cuisine newCuisine = new Cuisine("Indian");
