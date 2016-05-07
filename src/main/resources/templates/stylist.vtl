@@ -1,0 +1,17 @@
+<h1>Add clients to $stylist.getName() schedule.</h1>
+
+<form action="/stylists/$stylist.getId()/clients" method="post">
+  <div class="form-group">
+    <label for="client">Client name:</label>
+    <input id="client" name="client" type="text" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-success">Add new client to this stylist</button>
+</form>
+
+
+<ul>
+  #foreach ($client in $clients)
+    <h3><li><a href="/clients/$client.getClientId()">$client.getName()</a></li></h3>
+  #end
+</ul>

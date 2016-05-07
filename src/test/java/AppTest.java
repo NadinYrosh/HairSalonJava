@@ -36,42 +36,35 @@ public class AppTest extends FluentTest {
     submit(".btn");
     assertThat(pageSource()).contains("You have added a new stylist.");
   }
+
+  @Test
+  public void StylistIsDisplayed() {
+    Stylist newStylist = new Stylist("Bobby");
+    newStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists");
+    goTo(stylistPath);
+    assertThat(pageSource()).contains("Bobby");
+  }
+
+  @Test
+  public void stylistsPageDisplaysNames() {
+    Stylist newStylist = new Stylist("Bobby");
+    newStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists");
+    goTo(stylistPath);
+    assertThat(pageSource()).contains("Add stylist");
+  }
 //
-//   @Test
-//   public void CuisineIsDisplayed() {
-//     // goTo("http://localhost:4567/");
-//     // click("a", withText("Add a new cuisine"));
-//     // fill("#name").with("Indian");
-//     // submit(".btn");
-//     Cuisine newCuisine = new Cuisine("Indian");
-//     newCuisine.save();
-//     String cuisinesPath = String.format("http://localhost:4567/cuisines");
-//     goTo(cuisinesPath);
-//     assertThat(pageSource()).contains("Indian");
-//   }
-//
-//   @Test
-//   public void cuisinesShowPageDisplaysName() {
-//     Cuisine newCuisine = new Cuisine("Indian");
-//     newCuisine.save();
-//     String cuisinesPath = String.format("http://localhost:4567/cuisines");
-//     goTo(cuisinesPath);
-//     click("a", withText("Indian"));
-//     assertThat(pageSource()).contains("Add a new restaurant");
-//   }
-//
-//   @Test
-//     public void restaurantIsAddedAndDisplayed() {
-//       goTo("http://localhost:4567/cuisines/new");
-//       fill("#name").with("Indian");
-//       submit(".btn");
-//       click("a", withText("View list of cuisines"));
-//       click("a", withText("Indian"));
-//       fill("#restaurant").with("Lucka's");
-//       fill("#hours").with("11-7");
-//       click("a", withText("Add a new restaurant"));
-//       submit(".btn");
-//       assertThat(pageSource()).contains("Lucka's");
-//     }
+  @Test
+    public void clientIsAddedAndDisplayed() {
+      goTo("http://localhost:4567/stylist/new");
+      fill("#name").with("Bobby");
+      submit(".btn");
+      click("a", withText("View stylists list"));
+      click("a", withText("Bobby"));
+      fill("#client").with("Lucka");
+      submit(".btn");
+      assertThat(pageSource()).contains("Lucka");
+    }
 //
 }
