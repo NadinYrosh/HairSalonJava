@@ -80,4 +80,11 @@ public class Client {
       .executeUpdate();
     }
   }
+
+  // public List<Client> all(){
+  //   try (Connection con = DB.sql2o.open()){
+  //     String sql = "SELECT * FROM clients";
+  //     return con.createQuery(sql).executeAndFetch(Client.class);
+  //   }
+  // }
 }

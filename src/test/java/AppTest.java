@@ -54,7 +54,7 @@ public class AppTest extends FluentTest {
     goTo(stylistPath);
     assertThat(pageSource()).contains("Add stylist");
   }
-//
+
   @Test
     public void clientIsAddedAndDisplayed() {
       goTo("http://localhost:4567/stylist/new");
@@ -66,5 +66,13 @@ public class AppTest extends FluentTest {
       submit(".btn");
       assertThat(pageSource()).contains("Lucka");
     }
-//
+
+  @Test
+    public void getAllClients() {
+      goTo("http://localhost:4567/");
+      click("a", withText("View clients list"));
+      submit(".btn");
+      assertThat(pageSource()).contains("Here is a list of clients:");
+    }
+
 }

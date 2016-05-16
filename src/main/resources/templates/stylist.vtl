@@ -7,11 +7,13 @@
   </div>
 
   <button type="submit" class="btn btn-success">Add new client to this stylist</button>
-</form>
 
+</form>
+<hr>
+<a class="btn btn-primary" href="http://localhost:4567/">Go home</a>
 
 <ul>
   #foreach ($client in $clients)
-    <h3><li><a href="/clients/$client.getClientId()">$client.getName()</a></li></h3>
+    <h3><li>$client.getName()</li></h3>
   #end
 </ul>
